@@ -1,0 +1,14 @@
+name: Claims
+
+on: [push, pull_request]
+
+jobs:
+  claims:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"   # 3.11+ for tomllib
+      - name: Every claim names its proof, and quotes copy we still publish
+        run: python3 claimcheck.py all

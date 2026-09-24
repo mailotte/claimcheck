@@ -1,0 +1,15 @@
+# claimcheck configuration. Paths are relative to `root`.
+root = "example"
+inventory = "CLAIMS-INVENTORY.md"
+
+# The copy a visitor can actually read. Point this at what you PUBLISH: a
+# working copy-deck that lags the site will happily substantiate a claim no
+# shipped page makes, which is the drift this tool exists to catch.
+copy_globs = ["site/**/*.html", "site/*.txt"]
+
+# Claims stated as shipped must carry a proof. Hedged ones need not.
+requires_proof = "LIVE"
+proof_keys = ["test", "route"]
+
+# Claims allowed to sit at `unproven`. Lower it when you prove or withdraw one.
+unproven_baseline = 1
